@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        .nob{
+            border:solid 3px black ;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            padding-top:5px ;
+            padding-bottom:5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="sus">First Page</h1><br>
+    <a href="biblioteca.html">Biblioteca</a>
+    <a href="file:///C:/Users/Global%20Pain%20in%20the%20A/Desktop/PXH/lab3/cafeteria.html">Cafeteria</a>
+    <a href="#sus"><div class="nob">Sus</div></a>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Saepe laboriosam perferendis illo commodi aliquam, laborum possimus placeat.
+        Excepturi molestiae ad rerum fuga nihil aspernatur soluta magnam odit ullam laboriosam? Fugit.</p>
+    <h4>Resurse Campus</h4>
+    <ul id="resources"></ul><br><br>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quis quas veritatis animi.</p>
+    <p>Voluptas impedit tenetur consectetur corporis, blanditiis praesentium, repellendus facilis exercitationem inventore earum minima!</p>
+    <p>Labore sit quisquam itaque exercitationem reiciendis, perspiciatis dolorem eum blanditiis! Vel, porro repellendus.</p>
+    <p>Facere, sed exercitationem, cupiditate eaque ipsam fugiat perferendis, enim mollitia eveniet error pariatur.</p>
+    <p>Libero est commodi dignissimos tempore! Officia, repellat necessitatibus dolorem blanditiis eius optio vero!</p>
+    <p>Aliquid repudiandae voluptatem tempore eveniet numquam iste earum beatae, possimus dolorem totam est!</p>
+    <p>Consequatur, voluptas rerum. Vel, ut impedit aliquam molestias veritatis ad sapiente dolor voluptatibus!</p>
+    <p>Et tenetur, assumenda, optio earum corporis dignissimos possimus, nam ratione consequatur sint vero?</p>
+    <p>Quod iste nostrum commodi incidunt molestiae quo nam sint voluptatem, pariatur repellat at.</p>
+    <p>Non, odit dolorum cum nam dolores nesciunt ab expedita, officiis placeat neque repudiandae.</p>
+    <p>Cumque fugiat pariatur quas quis, nesciunt odit facere enim eius doloribus veniam sapiente!</p>
+    <p>Rem, et explicabo. Harum hic esse impedit, omnis sit reprehenderit fugit quidem delectus.</p>
+    <p>Voluptas maxime nobis, cupiditate nam nemo corrupti voluptatibus. Voluptate dicta consequuntur asperiores dolorem.</p>
+    <p>Facilis rerum harum quos, pariatur voluptas ipsa ratione culpa temporibus vero voluptatem maxime.</p>
+    <p>Excepturi vel reiciendis, nobis voluptatum recusandae adipisci aliquid corporis distinctio debitis, incidunt facere.</p>
+    <p>Dicta, natus odio ullam, amet sunt vel incidunt ratione modi quod doloribus molestias.</p>
+    <p>Molestiae libero vitae numquam quas suscipit? Voluptate voluptatem possimus quidem commodi culpa similique!</p>
+    <p>Ipsa tempora autem quod accusamus maiores magnam quaerat necessitatibus alias quo unde. Velit!</p>
+    <p>Ut deserunt a doloremque eos, hic dignissimos sed voluptas doloribus libero expedita aliquam.</p>
+    <p>Debitis dolor pariatur deleniti necessitatibus. Impedit debitis a vel nisi quis obcaecati error!</p>
+    <p>Repellat animi quidem debitis aut maxime ut, atque nemo magni dicta molestiae placeat.</p>
+    <p>Tempora dolores debitis temporibus tempore quo officiis ipsam provident incidunt. Quo, culpa nulla.</p>
+    <p>Quam autem, hic id fugiat perspiciatis maiores natus delectus non placeat consectetur culpa?</p>
+    <p>Similique suscipit facere blanditiis ad non, error dolorum quia nihil assumenda consequatur nesciunt?</p>
+    <p>Nisi, quaerat libero. Quam sapiente necessitatibus quibusdam voluptas facere quas ratione ab officia.</p>
+    <p>Vitae, ducimus aliquam ipsa atque odio non amet incidunt voluptatem enim tempore placeat.</p>
+    <p>Praesentium impedit officia doloribus voluptatum laborum quos. Aliquam impedit nam eaque magnam eos.</p>
+    <p>Provident natus minus earum nobis doloribus molestias nisi dignissimos, modi totam, incidunt magni?</p>
+    <p>Quia autem sit corporis optio obcaecati quasi vel id iusto laborum. Quos, laboriosam!</p>
+    <p>Quia aut, molestias aperiam temporibus voluptatem minus quos quidem ut quisquam omnis culpa.</p>
+    <script>
+        fetch("resources.json")
+        .then(response => response.json())
+        .then(data => {
+            const list = document.getElementById("resources");
+
+            data.forEach(resource => {
+                const item = document.createElement("li");
+
+                const tags = resource.tags.join(", ");
+
+                item.textContent =
+                    resource.name +" | locatie: " + resource.location +" | program: " + resource.program +" | tags: " + tags;
+                list.appendChild(item);
+            });
+        })
+        .catch(error => {
+            console.error("Eroare la incarcarea JSON:", error);
+        });
+    </script>
+    </body>
+</html>
